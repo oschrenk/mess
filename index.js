@@ -14,7 +14,11 @@ marked.setOptions({
 var userArgs = process.argv.slice(2);
 var fileName = userArgs[0];
 
-var uri = path.join(process.cwd(), fileName);
+
+
+var uri = path.isAbsolute(fileName)
+          ? fileName
+          : path.join(process.cwd(), fileName);
 
 // it's fine to read synchronously fo this usecase
 var contents = fs.readFileSync(uri, 'utf8');
