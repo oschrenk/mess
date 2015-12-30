@@ -19,4 +19,4 @@ var uri = path.join(process.cwd(), fileName);
 // it's fine to read synchronously fo this usecase
 var contents = fs.readFileSync(uri, 'utf8');
 
-console.log(marked(contents));
+console.log(marked(contents).trim());
